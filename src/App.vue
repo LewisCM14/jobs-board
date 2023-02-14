@@ -1,5 +1,6 @@
 <template>
 	<header>
+		<h1>Hyrule Jobs</h1>
 		<div class="order">
 			<button @click="handleClick('title')">Order by title</button>
 			<button @click="handleClick('salary')">Order by salary</button>

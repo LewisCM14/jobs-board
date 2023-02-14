@@ -1,7 +1,7 @@
 <template>
 	<div class="job-list">
 		<p>Ordered by {{ order }}</p>
-		<ul>
+		<transition-group name="list" tag="ul">
 			<li v-for="job in orderedJobs" :key="job.id">
 				<h2>{{ job.title }} in {{ job.location }}</h2>
 				<div class="salary">
@@ -17,14 +17,14 @@
 					</p>
 				</div>
 			</li>
-		</ul>
+		</transition-group>
 	</div>
 </template>
 
 <script lang="ts">
 import Job from '@/types/Job';
 import OrderTerm from '@/types/OrderTerm';
-import { PropType, defineComponent, computed } from 'vue';
+import { PropType, defineComponent, computed, TransitionGroup } from 'vue';
 
 export default defineComponent({
 	props: {
@@ -77,5 +77,8 @@ export default defineComponent({
 	color: #17bf66;
 	font-weight: bold;
 	margin: 10px 4px;
+}
+.list-move {
+	transition: all 1s;
 }
 </style>
